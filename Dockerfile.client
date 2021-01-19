@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /usr/app
+
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn
+
+COPY ./src ./src
+
+ENTRYPOINT [ "yarn" ]
+CMD [ "start" ]
